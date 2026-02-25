@@ -74,9 +74,7 @@ async def run_subprocess():
 
     # Step 3: Commit
     terminal.writeln('\x1b[34m[Step 3/6] Committing changes...\x1b[0m')
-    if not await run_command(['git', 'commit', '-m', msg], cwd=proj):
-        button.enable()
-        return
+    await run_command(['git', 'commit', '-m', msg], cwd=proj)
 
     # Step 4: Migrate each problem file
     terminal.writeln('\x1b[34m[Step 4/6] Rewriting commits with git lfs migrate...\x1b[0m')
