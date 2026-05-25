@@ -79,7 +79,7 @@ async def run_subprocess():
     # Step 4: Migrate each problem file
     terminal.writeln('\x1b[34m[Step 4/6] Rewriting commits with git lfs migrate...\x1b[0m')
     for path in paths:
-        if not await run_command(['git', 'lfs', 'migrate', 'import', f'--include={path}'], cwd=proj):
+        if not await run_command(['git', 'lfs', 'migrate', 'import', f'--include={path}', '-y'], cwd=proj):
             button.enable()
             return
 
